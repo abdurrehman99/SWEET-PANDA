@@ -1,0 +1,43 @@
+.showcase-img{
+    background: url('../assets/food.png') no-repeat;
+    background-size: cover ;
+    width: 100% !important;
+    border-radius: 0% !important;
+}
+.icon{
+    list-style: none;
+}
+.icon i{
+    font-size: 2rem;
+}
+
+.icon .fa-facebook-square:hover
+{
+  color: #3b5998;
+}
+
+.icon .fa-instagram:hover
+{
+  background: -webkit-linear-gradient(#8a3ab9,#bc2a8d,#e95950,#fccc63,#fbad50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon .fa-phone:hover
+{
+  color: #34A853;
+}
+
+.icon .fa-envelope:hover
+{
+  color: #0077b5;
+}
+
+.about-us{
+    line-height: 2rem;
+}
+
+.bakery-card:hover{
+  box-shadow: 5px 5px 5px #878888;
+}
+

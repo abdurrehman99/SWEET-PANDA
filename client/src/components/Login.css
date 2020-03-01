@@ -1,0 +1,22 @@
+.bg-img
+{
+    padding: 0 0 !important;
+}
+
+@media screen and (max-width:1000px) {
+.hide
+{
+    padding: 0 0 !important;
+    display: none;
+}
+
+}
+
+input{
+    border-radius: 10px !important;
+}
+
+button{
+    border-radius: 10px !important;
+
+}
