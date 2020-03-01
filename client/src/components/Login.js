@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { loginUser, setCurrentUser ,fbLogin } from '../actions/authActions';
+import { loginUser, setCurrentUser } from '../actions/authActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -154,7 +154,6 @@ Login.proptype = {
     loginUser : PropTypes.func.isRequired,
     auth : PropTypes.func.isRequired,
     errors : PropTypes.func.isRequired,
-    fbLogin : PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, {setCurrentUser, loginUser,fbLogin })(Login);
+export default connect(mapStateToProps, {setCurrentUser, loginUser })(Login);

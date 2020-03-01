@@ -25,23 +25,23 @@ export const registerUser = (userData, history) => dispatch => {
 };
 
 //FB login Route
-export const fbLogin = res => dispatch =>{
+// export const fbLogin = res => dispatch =>{
 
-    //get token form response
-    const { accessToken } = res;
+//     //get token form response
+//     const { accessToken } = res;
 
-    //Save to local storage
-    localStorage.setItem("jwtToken", "Bearer "+accessToken);
+//     //Save to local storage
+//     localStorage.setItem("jwtToken", "Bearer "+accessToken);
     
-    //decode token to get data
-    const decoded = jwtDecode(accessToken);
-    //set current user
-    dispatch(setCurrentUser(decoded));
-    sweetAlert({
-      title: "You are now logged in to Sweet Panda !",
-      icon: "success"
-    });
-}
+//     //decode token to get data
+//     const decoded = jwtDecode(accessToken);
+//     //set current user
+//     dispatch(setCurrentUser(decoded));
+//     sweetAlert({
+//       title: "You are now logged in to Sweet Panda !",
+//       icon: "success"
+//     });
+// }
 
 //Login & get Token
 export const loginUser = userData => dispatch => {
@@ -107,6 +107,7 @@ export const logoutUser = () => dispatch => {
 
       //Clear cart 
       localStorage.removeItem('cart');
+
       //Set current user to { } & isAuthenticated : false
       dispatch(setCurrentUser({}));
       window.location.replace('/');
