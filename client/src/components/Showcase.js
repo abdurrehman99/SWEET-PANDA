@@ -28,7 +28,7 @@ class Showcase extends Component {
                     bakers : res.data,
                 });
                 this.props.addVendor(this.state.bakers);
-            console.log(res.data);
+                // console.log(res.data);
             })
             .catch( err=>{
                 console.log(err);

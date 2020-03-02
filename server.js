@@ -30,10 +30,10 @@ mongoose
     .then(() => console.log('MongoDB is connected !'))
     .catch( error => console.log(error));
     
-//Index Routes
-// app.get('/',(req,res)=> {
-//     res.sendFile('index.html');
-// })
+// Index Route
+app.get('/',(req,res)=> {
+    res.send('<h2>Hello from node server</h2>');
+})
 
 //User API routes
 const users = require('./routes/api/users');
@@ -74,7 +74,7 @@ app.use('/api',orders);
 //setting default port for NODE app
 const PORT = process.env.PORT || 5000;
 
-//Server static assets in production
+// Server static assets in production
 if(process.env.NODE_ENV === 'production'){
     
     //Set static folder

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import sweetalert from 'sweetalert';
 import { Table } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addToCart } from '../actions/cartAction';
+import { fillCart } from '../actions/cartAction';
 import PropTypes from  'prop-types';
 
 class MyCart extends Component {
@@ -28,6 +28,7 @@ class MyCart extends Component {
             let { user } = this.props.auth;
             let totalAmount = 0;
 
+            //Calculate total Bill
             mycart.map(cart=>{
                 totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
             });
@@ -69,6 +70,7 @@ class MyCart extends Component {
                 });
                 this.props.history.push("/")
                 this.props.cart.mycart = [];
+                localStorage.removeItem('cart');
                 console.log(res);
             })
             .catch( err=>{
@@ -112,6 +114,7 @@ class MyCart extends Component {
                 });
                 this.props.history.push("/");
                 this.props.cart.mycart = [];
+                localStorage.removeItem('cart');
                 console.log(res);
             })
             .catch( err=>{
@@ -125,9 +128,17 @@ class MyCart extends Component {
 
     deleteItem = (index)=>{
         console.log(index);
-        let newCart = this.state.mycart;
+        let newCart = [...this.state.mycart];
         let totalAmount = 0;
         newCart.splice(index,1);
+
+        //Update local storage of CART
+        localStorage.setItem('cart',JSON.stringify(newCart));
+
+        //Update Redux of CART
+        this.props.fillCart(newCart);
+
+        //Update Amount
         newCart.map( cart=>{
             totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
         });
@@ -240,7 +251,7 @@ class MyCart extends Component {
 MyCart.propTypes = {
     showCart : PropTypes.func.isRequired,
     cart : PropTypes.object.isRequired,
-    addToCart : PropTypes.object.isRequired,
+    fillCart : PropTypes.object.isRequired
 
 }
 
@@ -249,4 +260,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect( mapStateToProps,{ addToCart })(MyCart);
+export default connect( mapStateToProps,{ fillCart })(MyCart);

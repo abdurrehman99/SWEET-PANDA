@@ -1,7 +1,7 @@
 import {ADD_VENDOR} from '../actions/types';
 
 const initialState = {
-    vendors : []
+    vendorsList : []
 }
 
 export default function(state = initialState, action){
@@ -9,7 +9,7 @@ export default function(state = initialState, action){
         case ADD_VENDOR:
             return {
                 // ...state,
-                vendors : [...action.payload]
+                vendorsList : [...action.payload]
             }
         default: 
             return state;

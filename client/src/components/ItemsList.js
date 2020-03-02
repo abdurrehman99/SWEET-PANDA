@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Spin } from "react-loading-io";
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartAction';
+import { addVendor } from '../actions/vendorAction';
 import PropTypes from  'prop-types';
 import classnames from 'classnames';
 import axios from 'axios';
@@ -13,7 +14,7 @@ class ItemsList extends Component {
     this.state = {
       activeTab : '1',
       setModal : false,
-      vendorList : [],
+      vendorsList : [],
       itemName : '' , 
       price : '',
       vendor : '' ,
@@ -34,7 +35,18 @@ class ItemsList extends Component {
       this.props.history.push('/adminPanel');
     }
     else{
-      
+      //Get All Vendors name from API
+      axios
+        .get("/api/getAllVendors")
+        .then(res => {
+          this.setState({
+            vendorsList : res.data
+          });
+          // console.log(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
       let s = 'Sweet';
       axios.get('/api//getAllProducts/'+s)
         .then( res=>{
@@ -75,16 +87,6 @@ class ItemsList extends Component {
           console.log(err);
         });
 
-      axios.get('/api/getAllVendors')
-        .then( res=>{
-            this.setState({
-              vendorList : res.data,
-            });
-           console.log(res.data);
-        })
-        .catch( err=>{
-            console.log(err);
-        });
     }
   }
 
@@ -199,7 +201,7 @@ class ItemsList extends Component {
                       <select onChange={ (e)=> this.vendorChange(e) } className={ classnames('my-2 form-control',{ 'is-invalid' : this.state.vendorError })}>
                           <option>Select Vendor</option>
                           {
-                            this.state.vendorList.map( (v,index)=>{
+                            this.state.vendorsList.map( (v,index)=>{
                               return(
                                 <option key={index} value={v.name}>{v.name}</option>
                               )
