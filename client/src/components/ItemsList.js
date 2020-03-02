@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Spin } from "react-loading-io";
 import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartAction';
-import { addVendor } from '../actions/vendorAction';
 import PropTypes from  'prop-types';
 import classnames from 'classnames';
 import axios from 'axios';
@@ -150,7 +149,7 @@ class ItemsList extends Component {
   }
   search = (e)=>{
     let value = e.target.value.toLowerCase();
-    console.log(value);
+    // console.log(value);
     this.setState({
         search : value,
     });
@@ -258,20 +257,21 @@ class ItemsList extends Component {
                 </div>
               </div>
               <div className="row text-center">
-                { filteredSweets.map( (sweet,index) => {
+                { 
+                  filteredSweets.map( (sweet,index) => {
                     return <div key={index} className="col-xs-12 col-sm-4 col-md-3 p-2">
                               <Card className="bakery-card">
                                   <CardBody>
                                     <CardTitle><h5>{sweet.name}</h5></CardTitle>
-                                    <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+sweet.imgURL} alt='' />
-                                    <CardText>
-                                      <p className='m-2'>{sweet.price} / kg</p>
+                                      <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+sweet.imgURL} alt='' />
+                                    <CardText className='m-2'>
+                                      {sweet.price} / kg
                                     </CardText>
-                                    <button onClick={ ()=>this.addCart(sweet.name,sweet.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
+                                      <button onClick={ ()=>this.addCart(sweet.name,sweet.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
                                   </CardBody>
                               </Card>
                           </div>
-                })}
+              })}
               </div>
             </TabPane>
             <TabPane tabId="2">
@@ -289,11 +289,11 @@ class ItemsList extends Component {
                                 <Card className="bakery-card">
                                     <CardBody>
                                       <CardTitle><h5>{halwa.name}</h5></CardTitle>
-                                      <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+halwa.imgURL} alt='' />
-                                      <CardText>
-                                        <p className='m-2'>{halwa.price} / kg</p>
+                                        <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+halwa.imgURL} alt='' />
+                                      <CardText className='m-2'>
+                                        {halwa.price} / kg
                                       </CardText>
-                                      <button onClick={ ()=>this.addCart(halwa.name,halwa.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
+                                        <button onClick={ ()=>this.addCart(halwa.name,halwa.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
                                     </CardBody>
                                 </Card>
                             </div>
@@ -315,11 +315,11 @@ class ItemsList extends Component {
                               <Card className="bakery-card">
                                   <CardBody>
                                     <CardTitle><h5>{cakes.name}</h5></CardTitle>
-                                    <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+cakes.imgURL} alt='' />
-                                    <CardText>
-                                        <p className='m-2'>{cakes.price} Rs</p>
+                                      <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+cakes.imgURL} alt='' />
+                                    <CardText className='m-2'>
+                                        {cakes.price} Rs
                                     </CardText>
-                                    <button onClick={ ()=>this.addCart(cakes.name,cakes.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
+                                      <button onClick={ ()=>this.addCart(cakes.name,cakes.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
                                   </CardBody>
                               </Card>
                           </div>
@@ -341,11 +341,11 @@ class ItemsList extends Component {
                               <Card className="bakery-card">
                                   <CardBody>
                                     <CardTitle><h5>{nimko.name}</h5></CardTitle>
-                                    <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+nimko.imgURL} alt='' />
-                                    <CardText>
-                                      <p className='m-2'>{nimko.price}Rs / pack</p>
+                                      <img width="100%" style={{ borderRadius : '50%'}} src={this.state.proxy+nimko.imgURL} alt='' />
+                                    <CardText className='m-2'>
+                                      {nimko.price}Rs / pack
                                     </CardText>
-                                    <button onClick={ ()=>this.addCart(nimko.name,nimko.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
+                                      <button onClick={ ()=>this.addCart(nimko.name,nimko.price) } className="btn btn-outline-primary"><i className="fas fa-cart-plus"></i> Add to cart</button>
                                   </CardBody>
                               </Card>
                           </div>

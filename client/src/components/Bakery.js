@@ -14,7 +14,8 @@ class Bakery extends Component {
       <div className="col-xs-12 col-sm-4 col-md-3 my-3" >
         <Card className='bakery-card'>
           <CardBody>
-            <CardTitle>{this.props.name}</CardTitle> <img width='100%' style={{ borderRadius : '50%'}} height='100%' src={this.props.image} alt='img not found' />
+            <CardTitle>{this.props.name}</CardTitle> 
+                <img width='100%' style={{ borderRadius : '50%'}} height='100%' src={this.props.image} alt='img not found' />
               <CardText>{this.props.description}</CardText>
             <Link to='/itemlist' className='btn btn-outline-primary'>View Products</Link>
           </CardBody>

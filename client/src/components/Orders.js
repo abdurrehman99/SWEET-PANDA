@@ -47,9 +47,9 @@ class Orders extends Component {
                     <div className="row">
                         <div className="col-xs-12 col-sm-10">
                         {
-                            this.state.allOrders.map( data=>{
+                            this.state.allOrders.map( (data,index)=>{
                                 return (
-                                    <div>
+                                    <div key={index}>
                                         <hr/>
                                         <h6>Name : {data.user.fullName}</h6>
                                         <h6>Email : {data.user.email}</h6>
@@ -70,7 +70,7 @@ class Orders extends Component {
                                                 {
                                                     data.cart.map((element,index) => {
                                                         return (
-                                                            <tr>
+                                                            <tr key={index}>
                                                                 <td>{index+1}</td>
                                                                 <td>{element.itemName}</td>
                                                                 <td>{element.quantity}</td>

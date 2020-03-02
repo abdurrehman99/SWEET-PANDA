@@ -290,7 +290,7 @@ class Users extends Component {
                                 <tbody> 
                                     { this.state.allUsers.map( (user,index)=>{
                                         return (
-                                            <tr>
+                                            <tr key={index}>
                                                 <td>{ index+1 }</td>
                                                 <td>{ user.fullName }</td>
                                                 <td>{ user.email }<button onClick={ ()=>this.deleteUser(user.email,user.fullName,index) } className='float-right btn btn-danger'><i className='fa fa-trash'></i> Delete User</button><button onClick={ ()=> this.openEdit(user.fullName,user.email,user.mobileNo,user._id,index) } className='float-right btn btn-primary mx-2'><i className='fa fa-edit'></i> Edit User</button></td>

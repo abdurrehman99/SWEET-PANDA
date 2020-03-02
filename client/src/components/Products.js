@@ -428,7 +428,7 @@ class Products extends Component {
                   {
                     this.state.sweet.map( (s,index)=>{
                       return(
-                        <tr>
+                        <tr key={index}>
                           <td>{index+1}</td>
                           <td>{s.name}</td>
                           <td>{s.price}</td>
@@ -457,7 +457,7 @@ class Products extends Component {
                 {
                     this.state.halwa.map( (s,index)=>{
                       return(
-                        <tr>
+                        <tr key={index}>
                           <td>{index+1}</td>
                           <td>{s.name}</td>
                           <td>{s.price}</td>
@@ -486,7 +486,7 @@ class Products extends Component {
                 {
                     this.state.cake.map( (s,index)=>{
                       return(
-                        <tr>
+                        <tr key={index}>
                           <td>{index+1}</td>
                           <td>{s.name}</td>
                           <td>{s.price}</td>
@@ -515,7 +515,7 @@ class Products extends Component {
                 {
                     this.state.nimko.map( (s,index)=>{
                       return(
-                        <tr>
+                        <tr key={index}>
                           <td>{index+1}</td>
                           <td>{s.name}</td>
                           <td>{s.price}</td>

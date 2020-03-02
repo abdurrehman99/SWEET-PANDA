@@ -6,7 +6,7 @@ import sweetalert from 'sweetalert';
 import { Table } from 'reactstrap';
 import { connect } from 'react-redux';
 import { fillCart } from '../actions/cartAction';
-import PropTypes from  'prop-types';
+// import PropTypes from  'prop-types';
 
 class MyCart extends Component {
 
@@ -29,9 +29,13 @@ class MyCart extends Component {
             let totalAmount = 0;
 
             //Calculate total Bill
-            mycart.map(cart=>{
+            mycart.forEach( (cart,index)=>{
                 totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
             });
+            
+            // mycart.map(cart=>{
+            //     totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
+            // });
             this.setState({ totalAmount , user , mycart });
         
         
@@ -139,9 +143,13 @@ class MyCart extends Component {
         this.props.fillCart(newCart);
 
         //Update Amount
-        newCart.map( cart=>{
+        newCart.forEach( (cart,index)=>{
             totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
         });
+        
+        // newCart.map( cart=>{
+        //     totalAmount=totalAmount+Number(cart.price)*Number(cart.quantity);
+        // });
         this.setState({
             mycart : newCart,
             totalAmount
@@ -206,7 +214,7 @@ class MyCart extends Component {
                             { this.state.mycart.map( (cart,index)=>{
                                 
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{index+1}</td>
                                         <td>{cart.itemName}</td>
                                         <td>{cart.vendor}</td>
@@ -248,12 +256,6 @@ class MyCart extends Component {
     }
 }
 
-MyCart.propTypes = {
-    showCart : PropTypes.func.isRequired,
-    cart : PropTypes.object.isRequired,
-    fillCart : PropTypes.object.isRequired
-
-}
 
 const mapStateToProps = (state) => ({
     cart : state.cart,

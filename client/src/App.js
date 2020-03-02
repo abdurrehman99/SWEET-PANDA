@@ -5,7 +5,6 @@ import jwtDecode from "jwt-decode";
 import { connect } from "react-redux";
 import { fillCart } from "./actions/cartAction";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-import { addVendor } from "./actions/vendorAction";
 import store from "./store";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
@@ -19,7 +18,6 @@ import Users from "./components/Users";
 import Products from "./components/Products";
 import Vendors from "./components/Vendors";
 import Footer from "./components/Footer";
-import axios from "axios";
 
 //Chk for cart in Local storage
 if (localStorage.cart) {

@@ -1,6 +1,5 @@
 import {ADD_TO_CART} from '../actions/types';
 import {FILL_CART} from '../actions/types';
-import {REMOVE_CART} from '../actions/types';
 
 const initialState = {
     mycart : [ ]
@@ -18,11 +17,7 @@ export default function(state = initialState, action){
             return {
                 mycart : [...action.payload]
             }
-        // case REMOVE_CART:
-        //     return {
-        //         // ...state,
-        //         mycart : [...state.mycart].splice(action.payload,1)
-        //     }
+        
         default: 
             return state;
     }

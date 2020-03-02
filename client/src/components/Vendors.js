@@ -216,21 +216,23 @@ class Vendors extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.allVendors.map((vendor,index) => {
-                    return (
-                      <tr>
-                        <td>{ index+1 }</td>
-                        <td>
-                          {vendor.name}
-                          <button
-                            onClick={() => this.deleteVendor(vendor._id,vendor.name,index)}
-                            className="float-right btn btn-danger">
-                            <i className="fa fa-trash"></i> Delete Vendor
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {
+                    this.state.allVendors.map((vendor,index) => {
+                      return (
+                        <tr key={index}>
+                          <td>{ index+1 }</td>
+                          <td>
+                            {vendor.name}
+                            <button
+                              onClick={() => this.deleteVendor(vendor._id,vendor.name,index)}
+                              className="float-right btn btn-danger">
+                              <i className="fa fa-trash"></i> Delete Vendor
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  }
                 </tbody>
               </Table>
             </div>

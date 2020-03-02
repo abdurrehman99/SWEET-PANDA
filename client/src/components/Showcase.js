@@ -90,9 +90,10 @@ class Showcase extends Component {
                             </div> : 
                             this.state.bakers.map( (baker,index)=>{
                             return <Bakery 
-                            key={index}
-                            name={baker.name}
-                            image={this.state.proxy+baker.imgURL} />
+                                        key={index}
+                                        name={baker.name}
+                                        image={this.state.proxy+baker.imgURL} 
+                                    />
                         })}
                     </div>
                     <hr />
