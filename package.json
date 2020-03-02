@@ -9,11 +9,11 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
+    "install-client": "cd client && npm insta;;",
+    "build": "cd client && npm run build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install-client": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run install -client && npm run build "
+    "heroku-postbuild": "npm install -client && npm run build"
   },
   "author": "Syed AbdurRehman",
   "license": "MIT",
