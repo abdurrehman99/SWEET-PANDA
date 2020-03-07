@@ -12,7 +12,6 @@ const validateLogin = require('../../validation/login');
 
 //Load User Model
 const User = require('../../models/User');
- 
 
 //@route POST api/users/register
 //@desc Register User
@@ -55,6 +54,7 @@ router.post('/register', (req,res)=> {
                         .catch(err => console.log(err));
                     });
                 });
+
                 // create reusable transporter object using the default SMTP transport
                     let transporter = nodemailer.createTransport({
                         host: 'smtp.gmail.com',
@@ -75,7 +75,8 @@ router.post('/register', (req,res)=> {
                         to: req.body.email, // list of receivers
                         subject: 'Welcome to Sweet Panda', // Subject line
                         text: '', // plain text body
-                        html: `<h2>Hello,</h2><h3>${req.body.fullName} you have successfully signed up for Sweet Panda !</h3>` // html body
+                        html: `<h2>Hello,</h2><h3>${req.body.fullName} you have successfully signed up for Sweet Panda !</h3>` 
+                        // html body
                     };
 
                     // send mail with defined transport object
@@ -118,6 +119,7 @@ router.post('/login', (req,res)=> {
                 .then( (isMatch)=>{
                     if(isMatch){
                         //User Matched
+
                         //Create JWT payload
                         const payload = { id: user.id , fullName:user.fullName, email : user.email }  
 

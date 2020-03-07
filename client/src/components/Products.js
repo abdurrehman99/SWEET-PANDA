@@ -29,6 +29,7 @@ class Products extends Component {
     };
   }
   componentDidMount() {
+
     if (this.props.auth.user.email !== "admin@sweetpanda.com") {
       this.props.history.push("/");
     }
@@ -85,17 +86,17 @@ class Products extends Component {
     .then(willDelete=>{
       if(willDelete){
         axios.post('/api/deleteProduct',{ _id })
-        .then(res=>{
-          console.log(res);
-          window.location.reload();
-        })
-        .catch(err=>{
-          sweetAlert({
-            icon : 'error',
-            title : 'Something went wrong !'
-          });
-          console.log(err);
-        })
+          .then(res=>{
+            console.log(res);
+            window.location.reload();
+          })
+          .catch(err=>{
+            sweetAlert({
+              icon : 'error',
+              title : 'Something went wrong !'
+            });
+            console.log(err);
+          })
       }
     })
     .catch(err=>{
@@ -132,6 +133,7 @@ class Products extends Component {
 
   categoryChange = (e)=>{
     this.setState({ category : e.target.value });
+
     if(e.target.value === 'Sweet' || e.target.value === 'Halwa') {
       this.setState({ unit : '/ KG' });
     }

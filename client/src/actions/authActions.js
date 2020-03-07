@@ -58,6 +58,7 @@ export const loginUser = userData => dispatch => {
       const decoded = jwtDecode(token);
       //set current user
       dispatch(setCurrentUser(decoded));
+      
       if(res.data.email === "admin@sweetpanda.com") {
         sweetAlert({
           title: "You are logged in as Admin !",
