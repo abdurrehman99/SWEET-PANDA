@@ -40,4 +40,39 @@
 .bakery-card:hover{
   box-shadow: 5px 5px 5px #878888;
 }
+.side-bar{
+  width : 15rem;
+  background-color: #343a40;
+  height : 100%;
+  position: fixed;
+  /* top : 50px; */
+  z-index: 300;
+}
 
+/* <div className='side-bar'>
+          <Navbar color='dark' dark >
+          <Nav className="" navbar>
+            <Link className="navbar-brand my-2 py-2" to="/">
+              <i className="fas fa-cookie-bite"></i> Sweet Panda
+            </Link>
+              <NavItem>
+                <Link className="nav-link mx-3 my-2" to="/itemlist">
+                  View Products
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link mx-3 my-2" to="/mycart">
+                  <i className="fas fa-shopping-cart"></i> My Cart
+                  <span className="mx-1 badge badge-secondary">
+                    {this.props.cart.mycart.length}
+                  </span>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link mx-3 my-2" to="/login">
+                  <i className="fas fa-sign-in-alt"></i> Login
+                </Link>
+              </NavItem>
+            </Nav>
+          </Navbar>
+        </div> */
