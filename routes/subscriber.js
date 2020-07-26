@@ -22,6 +22,8 @@ router.post('/subscribe',(req,res)=>{
                 newUser.save()
                 .then(user => console.log(user))
                 .catch(err => console.log(err));
+
+                
                 // create reusable transporter object using the default SMTP transport
                 let transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
