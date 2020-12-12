@@ -33,9 +33,9 @@ mongoose
   .catch((error) => console.log(error));
 
 // Index Route
-// app.get('/',(req,res)=> {
-//     res.send('<h2>Hello from node server</h2>');
-// })
+app.get("/", (req, res) => {
+  res.send("<h2>Hello from node server</h2>");
+});
 
 //User API routes
 const users = require("./routes/api/users");
